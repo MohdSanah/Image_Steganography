@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Image Steganography</title>
+</head>
+<body>
+    <h1>Image Steganography</h1>
+    <form action="/encode" method="post" enctype="multipart/form-data">
+        <label for="image">Choose an image:</label>
+        <input type="file" name="image" accept="image/*" required>
+        <label for="secret_text">Enter secret text:</label>
+        <textarea name="secret_text" required></textarea>
+        <button type="submit">Encode</button>
+    </form>
+    <p>Or, you can <a href="{{ url_for('extract_text') }}">extract hidden text</a> directly.</p>
+</body>
+</html>
